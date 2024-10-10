@@ -1,0 +1,416 @@
+@Metadata.layer: #PARTNER
+@UI: {
+  headerInfo: { typeName: 'Purchase Register',
+                typeNamePlural: 'Purchase Register',
+                title: { type: #STANDARD, label: 'Purchase Register', value: 'PurchaseOrder' } },
+  presentationVariant: [{ sortOrder: [{ by: 'PurchaseOrder', direction:  #DESC }] }] }
+annotate view ZMM_PV with
+{
+  @UI.facet: [ { id:              'PurchaseRegister',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Purchase Register',
+                 position:        10 }]
+
+  //  @UI: {  lineItem:       [ { position: 50, label: 'Delivery Year' } ],
+  //          identification: [ { position: 50, label: 'Delivery Year' } ] }
+  //  GRYear;
+
+  //  @UI: {  lineItem:       [ { position: 31, label: 'GRN Date' } ],
+  //          identification: [ { position: 31, label: 'GRN Date' } ],
+  //          selectionField: [ { position: 31}  ]}
+  //  GRPostingDate;
+  //
+  //  @UI: {  lineItem:       [ { position: 30, label: 'GR Document.' } ],
+  //          identification: [ { position: 30, label: 'GR Document.' } ],
+  //          selectionField: [ { position: 30}  ]}
+  //  GRDocument;
+  //
+  //  @UI: {  lineItem:       [ { position: 40, label: 'GRN item' } ],
+  //          identification: [ { position: 40, label: 'GRN item' } ] }
+  //  GLItem;
+
+  //  @UI: {  lineItem:         [ { position: 50, label: 'Vendor Name' } ],
+  //          identification:   [ { position: 50, label: 'Vendor Name' } ] }
+  //  VendorName;
+
+
+  //  @UI: {  lineItem:       [ { position: 80, label: 'Supplier Invoice No' } ],
+  //          identification: [ { position: 80, label: 'Supplier Invoice No' } ] }
+  //  SupplierInvoiceNo;
+  //
+  //  @UI: {  lineItem:       [ { position: 90, label: 'Invoice Date' } ],
+  //          identification: [ { position: 90, label: 'Invoice Date' } ] }
+  //  SupplierInvoiceDate;
+
+  //  @UI: {  lineItem:       [ { position: 90, label: 'ACC HEAD' } ],
+  //          identification: [ { position: 90, label: 'ACC HEAD' } ] }
+  //  acchead;
+  //
+  //  @UI: {  lineItem:       [ { position: 100, label: 'NARRATION' } ],
+  //          identification: [ { position: 100, label: 'NARRATION' } ] }
+  //  narration;
+
+  //  @UI: {  lineItem:       [ { position: 110, label: 'ITEM NAME' } ],
+  //          identification: [ { position: 110, label: 'ITEM NAME' } ] }
+  //  MaterialDescription;
+
+  //  @UI: {  lineItem:       [ { position: 120, label: 'HSN NO' } ],
+  //          identification: [ { position: 120, label: 'HSN NO' } ] }
+  //  hsnno;
+  //
+  //  @UI: {  lineItem:       [ { position: 130, label: 'COUNTRY' } ],
+  //          identification: [ { position: 130, label: 'COUNTRY' } ] }
+  //  Country;
+  //
+  //  @UI: {  lineItem:       [ { position: 140, label: 'Price Basic' } ],
+  //          identification: [ { position: 140, label: 'Price Basic' } ] }
+  //  pricebasic;
+
+  //  @UI.lineItem          : [{ position: 150, label: 'Quantity '  }]
+  //  @UI.identification    : [{ position: 150, label: 'Quantity  '  }]
+  //  quantity;
+  //
+  //  @UI.lineItem          : [{ position: 160, label: 'UOM (Unit of Measure) '  }]
+  //  @UI.identification    : [{ position: 160, label: 'UOM (Unit of Measure) '   }]
+  //  Baseunit;
+
+  //  @UI.lineItem          : [{ position: 170, label: 'Rate / KG '  }]
+  //  @UI.identification    : [{ position: 170, label: 'Rate / KG '  }]
+  //  Rate;
+  //
+  //  @UI.lineItem          : [{ position: 170, label: 'Taxable Value '  }]
+  //  @UI.identification    : [{ position: 170, label: 'Taxable Value '  }]
+  //  taxablevalue;
+  //
+  //  @UI.lineItem          : [{ position: 180, label: 'Discount Value'  }]
+  //  @UI.identification    : [{ position: 180, label: 'Discount Value'  }]
+  //  discountvalue;
+
+
+
+
+
+
+
+
+  @UI: { lineItem        : [{ position: 1, label: 'Vendor'  }],
+         identification    : [{ position: 1, label: 'Vendor'  }],
+         selectionField:   [ { position: 1}  ]}
+  Vendor;
+
+  @UI.lineItem        : [{ position: 2, label: 'Vendor Name'  }]
+  @UI.identification    : [{ position: 2, label: 'Vendor Name'  }]
+  venname;
+
+  @UI.lineItem        : [{ position: 3, label: 'Vendor State Code'  }]
+  @UI.identification    : [{ position: 3, label: 'Vendor State Code'  }]
+  VendorStatecode;
+
+  @UI.lineItem        : [{ position: 4, label: 'Vendor State Name'  }]
+  @UI.identification    : [{ position: 4, label: 'Vendor State Name'  }]
+  VendorStateName;
+
+  @UI.lineItem        : [{ position: 5, label: 'Vendor GSTIN Number'  }]
+  @UI.identification    : [{ position: 5, label: 'Vendor GSTIN Number'  }]
+  SupplierGSTNumber;
+
+  @UI.lineItem        : [{ position: 6, label: 'Vendor PAN Number'  }]
+  @UI.identification    : [{ position: 6, label: 'Vendor PAN Number'  }]
+  SupplierPANNumber;
+
+  @UI: {  lineItem:         [ { position: 7, label: 'Purchase Order Type' } ],
+        identification:   [ { position: 7, label: 'Purchase Order Type' } ]}
+//        selectionField:   [ { position: 7}  ]}
+  PurchaseOrderType;
+
+  @UI: {  lineItem:         [ { position: 8, label: 'Purchase Order Type Name' } ],
+      identification:   [ { position: 8, label: 'Purchase Order Type Name' } ]}
+  //      selectionField:   [ { position: 8}  ]}
+  PurchaseOrderTypeName;
+
+  @UI: {  lineItem:       [ { position: 9, label: 'Purchase Order' } ],
+        identification:   [ { position: 9, label: 'Purchase Order' } ],
+        selectionField:   [ { position: 9}  ]}
+  PurchaseOrder;
+
+  @UI: {  lineItem:       [ { position: 10, label: 'Purchase Order Item' } ],
+        identification:   [ { position: 10, label: 'Purchase Order Item' } ]}
+  //          selectionField:   [ { position: 60}  ]}
+  PurchaseOrderitem;
+
+  @UI: {  lineItem:     [ { position: 11, label: 'Purchase Order Date' } ],
+      identification:   [ { position: 11, label: 'Purchase Order Date' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  PurchaseOrderDate;
+
+  @UI: {  lineItem:     [ { position: 12, label: 'Material Type' } ],
+    identification:   [ { position: 12, label: 'Material Type' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  MaterialType;
+
+  @UI: {  lineItem:     [ { position: 13, label: 'Material Type Name' } ],
+    identification:   [ { position: 13, label: 'Material Type Name' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  MaterialTypeName;
+
+  @UI: {  lineItem:     [ { position: 14, label: 'Material' } ],
+  identification:   [ { position: 14, label: 'Material' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  Material;
+
+  @UI: {  lineItem:     [ { position: 15, label: 'Material Description' } ],
+  identification:   [ { position: 15, label: 'Material Description' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  MaterialDescription;
+
+  @UI: {  lineItem:     [ { position: 16, label: 'Base Price' } ],
+  identification:   [ { position: 16, label: 'Base Price' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  Baseprice;
+
+  @UI: {  lineItem:     [ { position: 17, label: 'Base Unit' } ],
+  identification:   [ { position: 17, label: 'Base Unit' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  Baseunit;
+
+  @UI: {  lineItem:     [ { position: 18, label: 'PO Currency' } ],
+  identification:   [ { position: 18, label: 'PO Currency' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  POCurrency;
+
+  @UI: {  lineItem:     [ { position: 19, label: 'FX Rate' } ],
+  identification:   [ { position: 19, label: 'FX Rate' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  FXRate;
+
+  @UI: {  lineItem:     [ { position: 20, label: 'HSN Code' } ],
+  identification:   [ { position: 20, label: 'HSN Code' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  HSNCode;
+
+  @UI: {  lineItem:     [ { position: 21, label: 'Plant' } ],
+  identification:   [ { position: 21, label: 'Plant' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  plant;
+
+  @UI: {  lineItem:     [ { position: 22, label: 'Plant State' } ],
+  identification:   [ { position: 22, label: 'Plant State' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  plantstate;
+
+  @UI: {  lineItem:     [ { position: 23, label: 'PO Quantity' } ],
+  identification:   [ { position: 23, label: 'PO Quantity' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  POQuantity;
+
+  @UI: {  lineItem:     [ { position: 24, label: 'Storage Location' } ],
+  identification:   [ { position: 24, label: 'Storage Location' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  StorageLocation;
+
+  @UI: {  lineItem:     [ { position: 25, label: 'Material Group' } ],
+  identification:   [ { position: 25, label: 'Material Group' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  Materialgroup;
+
+  @UI: {  lineItem:     [ { position: 26, label: 'Material Group Name' } ],
+  identification:   [ { position: 26, label: 'Material Group Name' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  MaterialgroupName;
+
+  @UI: {  lineItem:     [ { position: 27, label: 'Purchase Group' } ],
+  identification:   [ { position: 27, label: 'Purchase Group' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  PurchaseGroup;
+
+  @UI: {  lineItem:     [ { position: 28, label: 'Purchasing Group Name' } ],
+  identification:   [ { position: 28, label: 'Purchasing Group Name' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  PurchasingGroupName;
+
+  @UI: {  lineItem:     [ { position: 29, label: 'Purchase Tax Code' } ],
+  identification:   [ { position: 29, label: 'Purchase Tax Code' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  PurchaseTaxcode;
+
+  @UI: {  lineItem:     [ { position: 30, label: 'Delivery Year' } ],
+  identification:   [ { position: 30, label: 'Delivery Year' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  DeliveryYear;
+
+  @UI: {  lineItem:     [ { position: 31, label: 'GR Document' } ],
+         identification:   [ { position: 31, label: 'GR Document' } ],
+          selectionField:   [ { position: 31}  ]}
+  GRDocument;
+
+  @UI: {  lineItem:     [ { position: 32, label: 'GR Document Item' } ],
+  identification:   [ { position: 32, label: 'GR Document Item' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  GRDocumentitem;
+
+  @UI: {  lineItem:     [ { position: 33, label: 'Movement Type' } ],
+  identification:   [ { position: 33, label: 'Movement Type' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  MovementType;
+
+  @UI: {  lineItem:     [ { position: 34, label: 'GR Delivery Note' } ],
+  identification:   [ { position: 34, label: 'GR Delivery Note' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  GRDeliveryNote;
+
+  @UI: {  lineItem:     [ { position: 35, label: 'Delivery Date' } ],
+  identification:   [ { position: 35, label: 'Delivery Date' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  DeliveryDate;
+
+  @UI: {  lineItem:     [ { position: 36, label: 'Posting Date' } ],
+  identification:   [ { position: 36, label: 'Posting Date' } ],
+        selectionField:   [ { position: 36}  ]}
+  PostingDate;
+
+  @UI: {  lineItem:     [ { position: 37, label: 'Debit Credit Code' } ],
+  identification:   [ { position: 37, label: 'DebitCreditCode' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  DebitCreditCode;
+
+  @UI: {  lineItem:     [ { position: 38, label: 'GR Quantity' } ],
+  identification:   [ { position: 38, label: 'GR Quantity' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  QuantityInEntryUnit;
+
+  //    @UI: {  lineItem:     [ { position: 36, label: 'Posting Date' } ],
+  //  identification:   [ { position: 36, label: 'Posting Date' } ]}
+  //  //      selectionField:   [ { position: 11}  ]}
+  //  EntryUnit;
+
+  @UI: {  lineItem:     [ { position: 39, label: 'GR Amount' } ],
+  identification:   [ { position: 39, label: 'GR Amount' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  TotalGoodsMvtAmtInCCCrcy;
+
+  @UI: {  lineItem:     [ { position: 40, label: 'GL Account' } ],
+  identification:   [ { position: 40, label: 'GL Account' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  GLAccount;
+
+  @UI: {  lineItem:     [ { position: 41, label: 'GL Account Name' } ],
+  identification:   [ { position: 41, label: 'GL Account Name' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  GLAccountName;
+
+  @UI: {  lineItem:     [ { position: 42, label: 'Supplier Invoice No' } ],
+  identification:   [ { position: 42, label: 'Supplier Invoice No' } ],
+        selectionField:   [ { position: 42}  ]}
+  SupplierInvoiceNo;
+
+  @UI: {  lineItem:     [ { position: 43, label: 'Supplier Invoice Item' } ],
+  identification:   [ { position: 43, label: 'Supplier Invoice Item' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  SupplierInvoiceItem;
+
+  @UI: {  lineItem:     [ { position: 44, label: 'Fiscal Year' } ],
+  identification:   [ { position: 44, label: 'Fiscal Year' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  FiscalYear;
+
+  @UI: {  lineItem:     [ { position: 45, label: 'Invoice Date' } ],
+  identification:   [ { position: 45, label: 'Invoice Date' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  InvoiceDate;
+
+  @UI: {  lineItem:     [ { position: 46, label: 'Invoice Posting Date' } ],
+  identification:   [ { position: 46, label: 'Invoice Posting Date' } ],
+        selectionField:   [ { position: 46}  ]}
+  InvoicePostingDate;
+
+  @UI: {  lineItem:     [ { position: 47, label: 'Invoice Reference' } ],
+  identification:   [ { position: 47, label: 'Invoice Reference' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  InvoiceReference;
+
+  @UI: {  lineItem:     [ { position: 48, label: 'Debit Credit Code' } ],
+  identification:   [ { position: 48, label: 'Debit Credit Code' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  Supplierinvoicedebitcreditcode;
+
+  @UI: {  lineItem:     [ { position: 49, label: 'Tax Code' } ],
+  identification:   [ { position: 49, label: 'Tax Code' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  Taxcode;
+
+  @UI: {  lineItem:     [ { position: 50, label: 'Tax Description' } ],
+  identification:   [ { position: 50, label: 'Tax Description' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  taxdescription;
+
+  @UI: {  lineItem:     [ { position: 51, label: 'Tax Rate' } ],
+  identification:   [ { position: 51, label: 'Tax Rate' } ]}
+  //      selectionField:   [ { position: 11}  ]}
+  taxrate;
+
+  @UI.lineItem          : [{ position: 52, label: 'IGST Amount '  }]
+  @UI.identification    : [{ position: 52, label: 'IGST Amount '   }]
+  IGSTAmount;
+
+  @UI.lineItem          : [{ position: 53, label: 'CGST Amount  '  }]
+  @UI.identification    : [{ position: 53, label: 'CGST Amount  '  }]
+  CGSTAmount;
+
+  @UI.lineItem          : [{ position: 54, label: 'SGST Amount'  }]
+  @UI.identification    : [{ position: 54, label: 'SGST Amount'   }]
+  SGSTAmount;
+
+  @UI.lineItem          : [{ position: 55, label: 'Total GST'  }]
+  @UI.identification    : [{ position: 55, label: 'Total GST'  }]
+  grossamount;
+
+  @UI.lineItem          : [{ position: 56, label: 'Invoice Quantity'  }]
+  @UI.identification    : [{ position: 56, label: 'Invoice Quantity'  }]
+  InvoiceQuantity;
+
+  @UI.lineItem          : [{ position: 57, label: 'Invoice Amount'  }]
+  @UI.identification    : [{ position: 57, label: 'Invoice Amount'  }]
+  InvoiceAmount;
+
+  @UI.lineItem          : [{ position: 58, label: 'Amount In Currency'  }]
+  @UI.identification    : [{ position: 58, label: 'Amount In Currency'  }]
+  amountinlocalcurrency;
+
+  @UI.lineItem          : [{ position: 59, label: 'Amount In Company Code Currency'  }]
+  @UI.identification    : [{ position: 59, label: 'Amount In Company Code Currency'  }]
+  AmountInCompanyCodeCurrency;
+
+  @UI.lineItem          : [{ position: 60, label: 'TDS Rate'  }]
+  @UI.identification    : [{ position: 60, label: 'TDS Rate'  }]
+  TDSRate;
+
+  @UI.lineItem          : [{ position: 61, label: 'TDS Amount'  }]
+  @UI.identification    : [{ position: 61, label: 'TDS Amount'  }]
+  TDSAmount;
+
+  @UI.lineItem          : [{ position: 62, label: 'Net Payable'  }]
+  @UI.identification    : [{ position: 62, label: 'Net Payable'  }]
+  NetPayable;
+
+  @UI: { lineItem          : [{ position: 63, label: 'Company Code'  }],
+       identification    : [{ position: 63, label: 'Company Code'  }],
+       selectionField:   [ { position: 63}  ]}
+  CompanyCode;
+
+
+  //      SupplierInvoiceNo,
+  //      SupplierInvoiceItem,
+  //      FiscalYear,
+  //      InvoiceDate,
+  //      InvoicePostingDate,
+  //      InvoiceReference,
+  //      Supplierinvoicedebitcreditcode,
+  //      Taxcode,
+
+
+  // @UI.lineItem          : [{ position: 230, label: 'Total Amount'  }]
+  // @UI.identification    : [{ position: 230, label: 'Total Amount'  }]
+  // Totalamount;
+
+}
